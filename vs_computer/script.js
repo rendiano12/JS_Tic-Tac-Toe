@@ -6,7 +6,7 @@ const pilihStep = document.querySelector('.pilih-step');
 const pilihXO = document.querySelectorAll('.pilih-xo');
 
 // variable
-let randomBot = kotak[Math.floor(Math.random() * kotak.length)];
+let randomBot;
 let sudahMenang;
 let bs;
 let skorX = 0;
@@ -20,20 +20,22 @@ let arrKedua = ['i'];
 function pilih(kotak) {
     container.style.display = 'none';
     pilihStep.style.display = 'flex';
-    pilihXO[0].addEventListener('click', function() {
+    pilihXO[0].addEventListener('click', function () {
         container.style.display = 'grid';
         pilihStep.style.display = 'none';
         bs = true;
         sudahMenang = undefined;
     });
-    pilihXO[1].addEventListener('click', function() {
+    pilihXO[1].addEventListener('click', function () {
         container.style.display = 'grid';
         pilihStep.style.display = 'none';
         bs = false;
         sudahMenang = undefined;
         kotak.forEach(value => {
             value.innerText = '';
-        });      
+            value.addEventListener('click', tulisKotak);
+        });
+        randomBot = kotak[Math.floor(Math.random() * kotak.length)];
         randomBot.innerText = 'X';
         randomBot.style.color = 'red';
         randomBot.removeEventListener('click', tulisKotak);
@@ -45,22 +47,22 @@ function komputer(kotak) {
     let komp = kotak[Math.floor(Math.random() * kotak.length)];
     if (komp.innerText === '') {
         if (bs == true) {
-            setTimeout(function() {
+            setTimeout(function () {
                 komp.innerText = 'O';
                 komp.style.color = 'green';
-                komp.removeEventListener('click', tulisKotak);   
-                arrPertama.push('i');  
-                gameHasil(kotak);  
+                komp.removeEventListener('click', tulisKotak);
+                arrPertama.push('i');
+                gameHasil(kotak);
             }, 150);
         } else {
-            setTimeout(function() {
+            setTimeout(function () {
                 komp.innerText = 'X';
                 komp.style.color = 'red';
-                komp.removeEventListener('click', tulisKotak);   
-                arrKedua.push('i');  
-                gameHasil2(kotak);  
+                komp.removeEventListener('click', tulisKotak);
+                arrKedua.push('i');
+                gameHasil2(kotak);
             }, 150);
-        }        
+        }
     } else {
         if (arrPertama.length == 9 || arrKedua.length == 9) {
             if (bs == true) {
@@ -82,18 +84,18 @@ function tulisKotak() {
         arrPertama.push('i');
         if (sudahMenang != 'Ya') {
             komputer(kotak);
-        } 
+        }
     } else {
         this.innerText = 'O';
-        this.style.color = 'green'; 
+        this.style.color = 'green';
         gameHasil2(kotak);
         arrKedua.push('i');
         if (sudahMenang != 'Ya') {
             komputer(kotak);
-        }      
+        }
     }
 
-    this.removeEventListener('click', tulisKotak);  
+    this.removeEventListener('click', tulisKotak);
 }
 
 function gameHasil(num1) {
@@ -108,9 +110,9 @@ function gameHasil(num1) {
         (num1[2].innerText == 'X' && num1[4].innerText == 'X' && num1[6].innerText == 'X')
     ) {
         sudahMenang = 'Ya';
-        setTimeout(function() {        
+        setTimeout(function () {
             skorX++;
-            tampilSkorX.innerText = skorX; 
+            tampilSkorX.innerText = skorX;
             alert('Player Menang');
             for (let i = 0; i < num1.length; i++) {
                 num1[i].innerText = '';
@@ -118,10 +120,10 @@ function gameHasil(num1) {
             }
             arrPertama = [];
             arrKedua = ['i'];
-            setTimeout(function() {
+            setTimeout(function () {
                 pilih(kotak);
             }, 200);
-        }, 100);        
+        }, 100);
     } else if (
         (num1[0].innerText == 'O' && num1[1].innerText == 'O' && num1[2].innerText == 'O') ||
         (num1[3].innerText == 'O' && num1[4].innerText == 'O' && num1[5].innerText == 'O') ||
@@ -133,9 +135,9 @@ function gameHasil(num1) {
         (num1[2].innerText == 'O' && num1[4].innerText == 'O' && num1[6].innerText == 'O')
     ) {
         sudahMenang = 'Ya';
-        setTimeout(function() {
+        setTimeout(function () {
             skorO++;
-            tampilSkorO.innerText = skorO; 
+            tampilSkorO.innerText = skorO;
             alert('Computer Menang');
             for (let i = 0; i < num1.length; i++) {
                 num1[i].innerText = '';
@@ -143,14 +145,14 @@ function gameHasil(num1) {
             }
             arrPertama = [];
             arrKedua = ['i'];
-            setTimeout(function() {
+            setTimeout(function () {
                 pilih(kotak);
             }, 200);
-        }, 100); 
+        }, 100);
     } else {
         if (arrPertama.length == 9 || arrKedua.length == 9) {
             sudahMenang = 'Ya';
-            setTimeout(function() {               
+            setTimeout(function () {
                 alert('TIE');
                 for (let i = 0; i < num1.length; i++) {
                     num1[i].innerText = '';
@@ -158,10 +160,10 @@ function gameHasil(num1) {
                 }
                 arrPertama = [];
                 arrKedua = ['i'];
-                setTimeout(function() {
+                setTimeout(function () {
                     pilih(kotak);
                 }, 200);
-            }, 100); 
+            }, 100);
         }
     }
 }
@@ -178,9 +180,9 @@ function gameHasil2(num1) {
         (num1[2].innerText == 'X' && num1[4].innerText == 'X' && num1[6].innerText == 'X')
     ) {
         sudahMenang = 'Ya';
-        setTimeout(function() {        
+        setTimeout(function () {
             skorO++;
-            tampilSkorO.innerText = skorO; 
+            tampilSkorO.innerText = skorO;
             alert('Computer Menang');
             for (let i = 0; i < num1.length; i++) {
                 num1[i].innerText = '';
@@ -188,10 +190,10 @@ function gameHasil2(num1) {
             }
             arrPertama = [];
             arrKedua = ['i'];
-            setTimeout(function() {
+            setTimeout(function () {
                 pilih(kotak);
             }, 200);
-        }, 100);        
+        }, 100);
     } else if (
         (num1[0].innerText == 'O' && num1[1].innerText == 'O' && num1[2].innerText == 'O') ||
         (num1[3].innerText == 'O' && num1[4].innerText == 'O' && num1[5].innerText == 'O') ||
@@ -203,9 +205,9 @@ function gameHasil2(num1) {
         (num1[2].innerText == 'O' && num1[4].innerText == 'O' && num1[6].innerText == 'O')
     ) {
         sudahMenang = 'Ya';
-        setTimeout(function() {
+        setTimeout(function () {
             skorX++;
-            tampilSkorX.innerText = skorX; 
+            tampilSkorX.innerText = skorX;
             alert('Player Menang');
             for (let i = 0; i < num1.length; i++) {
                 num1[i].innerText = '';
@@ -213,14 +215,14 @@ function gameHasil2(num1) {
             }
             arrPertama = [];
             arrKedua = ['i'];
-            setTimeout(function() {
+            setTimeout(function () {
                 pilih(kotak);
             }, 200);
-        }, 100); 
+        }, 100);
     } else {
         if (arrPertama.length == 9 || arrKedua.length == 9) {
             sudahMenang = 'Ya';
-            setTimeout(function() {               
+            setTimeout(function () {
                 alert('TIE');
                 for (let i = 0; i < num1.length; i++) {
                     num1[i].innerText = '';
@@ -228,10 +230,10 @@ function gameHasil2(num1) {
                 }
                 arrPertama = [];
                 arrKedua = ['i'];
-                setTimeout(function() {
+                setTimeout(function () {
                     pilih(kotak);
                 }, 200);
-            }, 100); 
+            }, 100);
         }
     }
 }
