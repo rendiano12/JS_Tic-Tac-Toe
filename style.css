@@ -1,0 +1,51 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial;
+}
+
+@font-face {
+    font-family: TicTacToe;
+    src: url('./font/TicTacToe.ttf');
+}
+
+body {
+    background-color: gray;
+}
+
+div.container {
+    width: fit-content;
+    margin: 50px auto;
+}
+
+h1 {
+    font-family: TicTacToe;
+    font-size: 50pt;
+    color: whitesmoke;
+    padding: 5px;
+    margin-bottom: 100px;
+    text-align: center;
+    border: 2px solid whitesmoke;
+}
+
+a {
+    display: block;
+    background-color: whitesmoke;
+    padding: 10px;
+    font-size: 20pt;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+}
+
+a:hover {
+    background-color: orange;
+    color: cornsilk;
+}
+
+p {
+    color: whitesmoke;
+    text-align: center;
+    font-size: 16pt;
+}

@@ -1,0 +1,85 @@
+@font-face {
+    font-family: StickyNotes;
+    src: url('../font/Sticky_Notes.ttf');
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family: StickyNotes;
+}
+
+body {
+    background-color: gray;
+}
+
+a {
+    display: inline-block;
+    color: black;
+    background-color: orange;
+    font-size: 20pt;
+    margin: 5px 5px;
+    text-decoration: none;
+    padding: 5px;
+}
+
+a:hover {
+    background-color: darkorange;
+}
+
+div.masukan-nama, input, button {
+    width: fit-content;
+    margin: 20px auto;
+    background-color: white;
+    padding: 10px;
+    font-size: 18pt;
+}
+
+div.masukan-nama {
+    border: 2px ridge black;
+}
+
+div.skor {
+    display: flex;
+    justify-content: space-around;
+    font-size: 15pt;
+    width: 300px;
+    margin: 20px auto;
+    padding: 5px;
+    background-color: white;
+}
+
+div.turn {
+    color: red;
+    text-align: center;
+    border: 2px solid black;
+    background-color: white;
+    width: fit-content;
+    padding: 5px;
+    font-size: 40pt;
+    font-weight: bold;
+    margin: auto auto 5px auto;
+}
+
+div.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: auto;
+    width: fit-content;
+}
+
+div.kotak {
+    text-align: center;
+    cursor: pointer;
+    height: 100px;
+    width: 100px;
+    padding: 5px;
+    background-color: white;
+    font-weight: bold;
+    font-size: 80pt;
+    border: 2px solid black;
+}
+
+div.kotak:hover {
+    background-color: whitesmoke;
+}

@@ -1,0 +1,81 @@
+@font-face {
+    font-family: StickyNotes;
+    src: url('../font/Sticky_Notes.ttf');
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family: StickyNotes;
+}
+
+body {
+    background-color: gray;
+}
+
+a {
+    display: inline-block;
+    color: black;
+    font-size: 20pt;
+    background-color: orange;
+    margin: 5px 5px;
+    text-decoration: none;
+    padding: 5px;
+}
+
+a:hover {
+    background-color: darkorange;
+}
+
+div.skor {
+    display: flex;
+    justify-content: space-around;
+    width: 300px;
+    font-size: 15pt;
+    margin: 50px auto;
+    padding: 5px;
+    background-color: white;
+}
+
+div.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: auto;
+    width: fit-content;
+}
+
+div.pilih-step {
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    border: 2px solid black;
+    width: 400px;
+    margin: auto;
+    padding: 5px;
+}
+
+button {
+    cursor: pointer;
+    background-color: black;
+    padding: 5px;
+    color: white;
+    font-size: 26pt;
+    font-weight: bold;
+    width: 100px;
+}
+
+div.kotak {
+    text-align: center;
+    cursor: pointer;
+    height: 100px;
+    width: 100px;
+    padding: 5px;
+    background-color: white;
+    font-weight: bold;
+    font-size: 80pt;
+    border: 2px solid black;
+}
+
+div.kotak:hover {
+    background-color: whitesmoke;
+}
