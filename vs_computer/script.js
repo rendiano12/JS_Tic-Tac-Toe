@@ -65,11 +65,9 @@ function komputer(kotak) {
         }
     } else {
         if (arrPertama.length == 9 || arrKedua.length == 9) {
-            if (bs == true) {
-                gameHasil(kotak);
-            } else {
-                gameHasil2(kotak);
-            }
+            bs == true
+                ? gameHasil(kotak)
+                : gameHasil2(kotak);
         } else {
             komputer(kotak);
         }
